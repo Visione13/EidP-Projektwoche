@@ -64,6 +64,7 @@ public class CaesarChiffre {
 				System.out.println("Bitte Gültige Nummer eingeben");
 			}
 		}
+		scan.close();
 	}
 	
 	public String encrypt(String klartext, int versatz) {
