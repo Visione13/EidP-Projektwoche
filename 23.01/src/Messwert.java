@@ -19,11 +19,16 @@ public class Messwert {
 		int sum = Messwert.Summe(werte);
 		int min = Messwert.Minimum(werte, sum);
 		double mid = Messwert. Mittelwert(sum, anzahl);
+		String forward = Messwert.Forward(werte);
+		String backward = Messwert.Backward(werte);
 		
 		System.out.println("Maximum: " + max);
 		System.out.println("Minimum: " + min);
 		System.out.println("Mittelwert: " + mid);
 		System.out.println("Summe: " + sum);
+		System.out.println("Vorwärts: " + forward);
+		System.out.println("Rückwärts: " + backward);
+		
 		
 		scan.close();
 	}
@@ -64,4 +69,36 @@ public class Messwert {
 		
 		return mittel;
 	 }
+	
+	public String Forward (int[] werte) {
+		String forward = "";
+		String[] strArray = new String[werte.length];
+		
+		for (int i = 0; i < werte.length; i++) {
+			strArray[i] = String.valueOf(werte[i]);
+		}
+		
+		for (String str : strArray) {
+			forward = forward + " " + str;
+		}
+		
+		return forward;
+	}
+	
+	public String Backward (int[] werte) {
+		String backward = "";
+		
+		String[] strArray = new String[werte.length];
+		
+		int j = 0;
+		for (int i = werte.length; i > 0; i--) {
+			strArray[i-1] = String.valueOf(werte[j]);
+			j += 1;
+		}
+		
+		for (String str : strArray) {
+			backward = backward + " " + str;
+		}
+		return backward;	
+	}
 }
