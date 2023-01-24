@@ -73,4 +73,8 @@ public class Bruch {
 		 
 		 return z2;
 	}
+	
+	public void kuerze() {
+		
+	}
 }
