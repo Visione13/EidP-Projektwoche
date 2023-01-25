@@ -8,9 +8,9 @@ public class Spielblock {
 	}
 	
 	public int getZeilen() {
-		int zeile;
-		zeile = punkte.length;
-		return zeile;
+		int zeilen;
+		zeilen = punkte.length;
+		return zeilen;
 	}
 	
 	public int getSpalten() {
@@ -25,24 +25,12 @@ public class Spielblock {
 		return wert;
 	}
 	
-	public int getSumme() {
+	public int getSumme(int spiel) {
 		int summe = 0;
-		int spiele = punkte[0].length;
-		int[] summen = new int[spiele];
 		
-		for(int i = 0; i < summen.length; i++) {
-			for(int punkt : punkte[i]) {
-				summen[i] += punkte[i][0];
-			}
+		for(int i = 0; i < punkte.length; i++) {
+			summe+= punkte[i][spiel-1];
 		}
-		
-		for(int i = 0; i < summen.length;i++) {
-			if(summen[i]!=0) 
-			{
-				summe = summen[i];
-			}
-		}
-		
 		return summe;
 	}
 	
