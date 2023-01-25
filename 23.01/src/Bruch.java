@@ -60,7 +60,6 @@ public class Bruch {
 			z2 = b;
 		}
 		
-		
 		r = z1 % z2; 
 		 		
 		while (r!=0)
