@@ -39,8 +39,11 @@ public class Kniffel {
 				spieler = 1;
 				while(spieler <= spieleranzahl) {
 					System.out.println("\n");
-					System.out.println("\nSpieler " +spieler);
+					System.out.println("\nSpieler " +spieler + "   " + player[spieler-1].block.getSumme(spiel) + " Punkte");
 					player[spieler-1].zugAusfuehren(spiel);
+					player[spieler-1].block.setWert(5, spiel-1, 60);
+					System.out.print(player[spieler-1].block.getSumme(spiel));
+					player[spieler-1].block.ausgebenBlock();
 					spieler++;
 				}
 				runde++;

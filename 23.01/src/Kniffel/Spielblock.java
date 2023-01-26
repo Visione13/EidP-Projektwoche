@@ -29,6 +29,9 @@ public class Spielblock {
 		int summe = 0;
 		
 		for(int i = 0; i < punkte.length; i++) {
+			if(summe > 63) {
+				this.setWert(6, spiel-1, 35);
+			}
 			summe+= punkte[i][spiel-1];
 		}
 		return summe;
@@ -81,5 +84,24 @@ public class Spielblock {
 	public void ausgabeSpiel(int spiel, int x) {
 		System.out.print(punkte[x-1][spiel]);
 		System.out.print("     ");
+	}
+	
+	public void setBonus(int spiel) {
+		int summe = 0;
+		int offset = 0;
+		for(int i = 0; i < punkte.length; i++) {
+			if(punkte[i] == punkte[6+offset]) {
+				offset += 1;
+				if(offset == punkte.length) {
+					offset -= 1;
+				}
+			}
+			if(punkte[i] != punkte[6+offset]) {
+				summe+= punkte[i][spiel-1];
+			}
+			if(summe > 63) {
+				this.setWert(6, spiel-1, 35);
+			}
+		}
 	}
 }
